@@ -22,3 +22,16 @@ class Inventario:
 
     def listar_productos(self):
          return [p.to_dict() for p in self.__productos.values()]
+
+    def vender_producto(self,id_producto, cantidad):
+         producto = self.obtener_producto(id_producto)
+         producto.vender(cantidad)
+
+    def reponer_producto(self, id_producto, cantidad):
+         producto = self.obtener_producto(id_producto)
+         producto.reponer_stock(cantidad)
+
+    def eliminar_producto(self,id_producto):
+         self.obtener_producto(id_producto)
+         del self.__productos[id_producto]
+
