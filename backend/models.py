@@ -1,10 +1,14 @@
 class Producto():
-    def __init__(self,id, nombre, categoria, precio, stock):
+    def __init__(self, nombre, categoria, precio, stock, id=None,):
         self.id = id
         self.nombre = nombre
         self.categoria = categoria
         self.precio = precio
         self.__stock = stock
+
+        if self.id is not None:
+            if not isinstance(self.id, int) or isinstance(self.id, bool) or self.id <= 0:
+                raise ValueError("el ID debe ser un numero entero positivo")
 
     @property
     def precio(self):

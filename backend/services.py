@@ -6,9 +6,9 @@ class Inventario:
 
     def agregar_producto(self,producto):                
         if not isinstance(producto, Producto):
-            raise ValueError("el producto debe ser una instancia de producto")    
+            raise ValueError("el producto debe ser un numero entero")    
         if producto.id in self.__productos:
-                raise ValueError("Ese ID ya existe, escoja otro")
+            raise ValueError("Ese ID ya existe, escoja otro")
         else:
             self.__productos[producto.id] = producto
 
@@ -34,4 +34,5 @@ class Inventario:
     def eliminar_producto(self,id_producto):
          self.obtener_producto(id_producto)
          del self.__productos[id_producto]
+     
 
